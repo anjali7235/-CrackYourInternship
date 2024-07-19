@@ -1,0 +1,15 @@
+class Solution:
+
+    def findMinDiff(self, A,N,M):
+        if(M==0 or N==0):
+            return 0
+        A.sort()
+        
+        if(N<M):
+            return -1
+            
+        min_Diff = A[N-1] - A[0]
+        
+        for i in range (len(A) - M + 1):
+            min_Diff = min(min_Diff, A[i + M -1] - A[i])
+        return min_Diff
